@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 
 from ignor.routes import root, templates
-from ignor.schemas import Message
 
 app = FastAPI(
     title='Ignor API',
@@ -18,8 +17,3 @@ app.include_router(
     root.router,
     tags=['root'],
 )
-
-
-@app.get('/', response_model=Message)
-async def root():
-    return {'message': 'Developed by @machadoah 🤓'}

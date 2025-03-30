@@ -10,7 +10,4 @@ router = APIRouter(
 
 @router.get('/', response_model=Message)
 async def root():
-    """
-    Root endpoint
-    """
-    return {'message': 'Hello World'}
+    return {'message': 'Developed by @machadoah 🤓'}
