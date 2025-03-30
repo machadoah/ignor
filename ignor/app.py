@@ -1,24 +1,25 @@
 from fastapi import FastAPI
 
-from ignor.routes.templates import templates_router
+from ignor.routes import root, templates
+from ignor.schemas import Message
 
 app = FastAPI(
-    title="Ignor API",
-    description="API for Ignor",
-    version="0.1.0",
+    title='Ignor API',
+    description='API for Ignor',
+    version='0.1.0',
 )
 
 app.include_router(
-    templates_router,
-    tags=["templates"],
+    templates.router,
+    tags=['templates'],
+)
+
+app.include_router(
+    root.router,
+    tags=['root'],
 )
 
 
-@app.get("/")
+@app.get('/', response_model=Message)
 async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/health")
-async def health():
-    return {"status": "healthy"}
+    return {'message': 'Developed by @machadoah 🤓'}
