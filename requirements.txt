@@ -1,0 +1,5 @@
+fastapi[standard]
+pytest
+pytest-cov
+ruff
+taskipy
