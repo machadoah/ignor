@@ -1,4 +1,9 @@
+# production
 fastapi[standard]
+pydantic
+pydantic-settings
+
+# development
 pytest
 pytest-cov
 ruff
