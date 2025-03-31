@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 
 from ignor.routes import root, templates
 
@@ -7,6 +8,15 @@ app = FastAPI(
     description='API for Ignor',
     version='0.1.0',
 )
+
+
+@app.get('/')
+async def redirect_to_docs():
+    """
+    Redirect to the docs
+    """
+    return RedirectResponse(url='/docs')
+
 
 app.include_router(
     templates.router,
